@@ -25,14 +25,14 @@ import (
 	"strings"
 	"sync/atomic"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/core/tracing"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/params"
 	"github.com/holiman/uint256"
+	"github.com/idrecun/go-ethereum/common"
+	"github.com/idrecun/go-ethereum/common/hexutil"
+	"github.com/idrecun/go-ethereum/common/math"
+	"github.com/idrecun/go-ethereum/core/tracing"
+	"github.com/idrecun/go-ethereum/core/types"
+	"github.com/idrecun/go-ethereum/core/vm"
+	"github.com/idrecun/go-ethereum/params"
 )
 
 // Storage represents a contract's storage.

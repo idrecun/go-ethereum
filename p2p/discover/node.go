@@ -25,9 +25,9 @@ import (
 	"sort"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/idrecun/go-ethereum/common/math"
+	"github.com/idrecun/go-ethereum/crypto"
+	"github.com/idrecun/go-ethereum/p2p/enode"
 )
 
 type BucketNode struct {

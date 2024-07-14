@@ -21,11 +21,11 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/consensus/misc"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/idrecun/go-ethereum/common"
+	"github.com/idrecun/go-ethereum/common/math"
+	"github.com/idrecun/go-ethereum/consensus/misc"
+	"github.com/idrecun/go-ethereum/core/types"
+	"github.com/idrecun/go-ethereum/params"
 )
 
 // VerifyEIP1559Header verifies some header attributes which were changed in EIP-1559,

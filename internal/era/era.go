@@ -28,11 +28,11 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/internal/era/e2store"
-	"github.com/ethereum/go-ethereum/rlp"
 	"github.com/golang/snappy"
+	"github.com/idrecun/go-ethereum/common"
+	"github.com/idrecun/go-ethereum/core/types"
+	"github.com/idrecun/go-ethereum/internal/era/e2store"
+	"github.com/idrecun/go-ethereum/rlp"
 )
 
 var (

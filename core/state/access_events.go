@@ -19,11 +19,11 @@ package state
 import (
 	"maps"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/trie/utils"
 	"github.com/holiman/uint256"
+	"github.com/idrecun/go-ethereum/common"
+	"github.com/idrecun/go-ethereum/common/math"
+	"github.com/idrecun/go-ethereum/params"
+	"github.com/idrecun/go-ethereum/trie/utils"
 )
 
 // mode specifies how a tree location has been accessed

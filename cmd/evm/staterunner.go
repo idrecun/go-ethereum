@@ -22,12 +22,12 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/eth/tracers/logger"
-	"github.com/ethereum/go-ethereum/tests"
+	"github.com/idrecun/go-ethereum/common"
+	"github.com/idrecun/go-ethereum/core/rawdb"
+	"github.com/idrecun/go-ethereum/core/state"
+	"github.com/idrecun/go-ethereum/core/vm"
+	"github.com/idrecun/go-ethereum/eth/tracers/logger"
+	"github.com/idrecun/go-ethereum/tests"
 	"github.com/urfave/cli/v2"
 )
 

@@ -24,9 +24,9 @@ import (
 	"slices"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/idrecun/go-ethereum/common"
+	"github.com/idrecun/go-ethereum/core/types"
+	"github.com/idrecun/go-ethereum/rlp"
 )
 
 // HeaderReader is an interface to pull in headers in place of block hashes for

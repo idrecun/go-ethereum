@@ -25,17 +25,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/consensus/ethash"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/eth"
-	"github.com/ethereum/go-ethereum/eth/ethconfig"
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/idrecun/go-ethereum/common"
+	"github.com/idrecun/go-ethereum/consensus/ethash"
+	"github.com/idrecun/go-ethereum/core"
+	"github.com/idrecun/go-ethereum/core/types"
+	"github.com/idrecun/go-ethereum/crypto"
+	"github.com/idrecun/go-ethereum/eth"
+	"github.com/idrecun/go-ethereum/eth/ethconfig"
+	"github.com/idrecun/go-ethereum/node"
+	"github.com/idrecun/go-ethereum/params"
+	"github.com/idrecun/go-ethereum/rpc"
 )
 
 // Verify that Client implements the ethereum interfaces.

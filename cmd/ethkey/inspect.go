@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/cmd/utils"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/idrecun/go-ethereum/accounts/keystore"
+	"github.com/idrecun/go-ethereum/cmd/utils"
+	"github.com/idrecun/go-ethereum/crypto"
 	"github.com/urfave/cli/v2"
 )
 

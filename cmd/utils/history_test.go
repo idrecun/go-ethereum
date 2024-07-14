@@ -26,17 +26,17 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/consensus/ethash"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/internal/era"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/trie"
-	"github.com/ethereum/go-ethereum/triedb"
+	"github.com/idrecun/go-ethereum/common"
+	"github.com/idrecun/go-ethereum/consensus/ethash"
+	"github.com/idrecun/go-ethereum/core"
+	"github.com/idrecun/go-ethereum/core/rawdb"
+	"github.com/idrecun/go-ethereum/core/types"
+	"github.com/idrecun/go-ethereum/core/vm"
+	"github.com/idrecun/go-ethereum/crypto"
+	"github.com/idrecun/go-ethereum/internal/era"
+	"github.com/idrecun/go-ethereum/params"
+	"github.com/idrecun/go-ethereum/trie"
+	"github.com/idrecun/go-ethereum/triedb"
 )
 
 var (

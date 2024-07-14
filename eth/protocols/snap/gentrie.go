@@ -19,10 +19,10 @@ package snap
 import (
 	"bytes"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/trie"
+	"github.com/idrecun/go-ethereum/common"
+	"github.com/idrecun/go-ethereum/core/rawdb"
+	"github.com/idrecun/go-ethereum/ethdb"
+	"github.com/idrecun/go-ethereum/trie"
 )
 
 // genTrie interface is used by the snap syncer to generate merkle tree nodes

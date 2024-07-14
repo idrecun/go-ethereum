@@ -28,20 +28,20 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/state/snapshot"
-	"github.com/ethereum/go-ethereum/core/stateless"
-	"github.com/ethereum/go-ethereum/core/tracing"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/trie"
-	"github.com/ethereum/go-ethereum/trie/trienode"
-	"github.com/ethereum/go-ethereum/trie/triestate"
-	"github.com/ethereum/go-ethereum/trie/utils"
 	"github.com/holiman/uint256"
+	"github.com/idrecun/go-ethereum/common"
+	"github.com/idrecun/go-ethereum/core/rawdb"
+	"github.com/idrecun/go-ethereum/core/state/snapshot"
+	"github.com/idrecun/go-ethereum/core/stateless"
+	"github.com/idrecun/go-ethereum/core/tracing"
+	"github.com/idrecun/go-ethereum/core/types"
+	"github.com/idrecun/go-ethereum/crypto"
+	"github.com/idrecun/go-ethereum/log"
+	"github.com/idrecun/go-ethereum/params"
+	"github.com/idrecun/go-ethereum/trie"
+	"github.com/idrecun/go-ethereum/trie/trienode"
+	"github.com/idrecun/go-ethereum/trie/triestate"
+	"github.com/idrecun/go-ethereum/trie/utils"
 	"golang.org/x/sync/errgroup"
 )
 
@@ -226,7 +226,7 @@ func (s *StateDB) StartPrefetcher(namespace string, witness *stateless.Witness) 
 		//
 		// To prevent this, the account trie is always scheduled for prefetching once
 		// the prefetcher is constructed. For more details, see:
-		// https://github.com/ethereum/go-ethereum/issues/29880
+		// https://github.com/idrecun/go-ethereum/issues/29880
 		if err := s.prefetcher.prefetch(common.Hash{}, s.originalRoot, common.Address{}, nil, false); err != nil {
 			log.Error("Failed to prefetch account trie", "root", s.originalRoot, "err", err)
 		}

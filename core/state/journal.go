@@ -19,8 +19,8 @@ package state
 import (
 	"maps"
 
-	"github.com/ethereum/go-ethereum/common"
 	"github.com/holiman/uint256"
+	"github.com/idrecun/go-ethereum/common"
 )
 
 // journalEntry is a modification entry in the state change journal that can be
