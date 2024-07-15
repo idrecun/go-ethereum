@@ -40,6 +40,7 @@ require (
 	github.com/huin/goupnp v1.3.0
 	github.com/idrecun/go-ethereum/vendoring/go-ipa v0.0.0-20240715082129-4e8bd09737cd
 	github.com/idrecun/go-ethereum/vendoring/go-kzg-4844 v0.0.0-20240715080318-13643d425724
+	github.com/idrecun/go-ethereum/vendoring/go-verkle v0.0.0-20240715083332-4864183cb0b8
 	github.com/idrecun/go-ethereum/vendoring/pebble v0.0.0-20240715081509-f6acf4ace2bc
 	github.com/influxdata/influxdb-client-go/v2 v2.4.0
 	github.com/influxdata/influxdb1-client v0.0.0-20220302092344-a9ab5670611c
