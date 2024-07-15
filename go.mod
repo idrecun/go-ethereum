@@ -14,7 +14,6 @@ require (
 	github.com/cespare/cp v0.1.0
 	github.com/cloudflare/cloudflare-go v0.79.0
 	github.com/consensys/gnark-crypto v0.12.1
-	github.com/crate-crypto/go-ipa v0.0.0-20240223125850-b1e8a79f509c
 	github.com/davecgh/go-spew v1.1.1
 	github.com/deckarep/golang-set/v2 v2.6.0
 	github.com/donovanhide/eventsource v0.0.0-20210830082556-c59027999da0

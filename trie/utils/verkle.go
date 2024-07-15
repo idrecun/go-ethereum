@@ -20,11 +20,11 @@ import (
 	"encoding/binary"
 	"sync"
 
-	"github.com/crate-crypto/go-ipa/bandersnatch/fr"
 	"github.com/ethereum/go-verkle"
 	"github.com/holiman/uint256"
 	"github.com/idrecun/go-ethereum/common/lru"
 	"github.com/idrecun/go-ethereum/metrics"
+	"github.com/idrecun/go-ethereum/vendoring/go-ipa/bandersnatch/fr"
 )
 
 const (
