@@ -25,12 +25,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/cockroachdb/pebble"
-	"github.com/cockroachdb/pebble/bloom"
 	"github.com/idrecun/go-ethereum/common"
 	"github.com/idrecun/go-ethereum/ethdb"
 	"github.com/idrecun/go-ethereum/log"
 	"github.com/idrecun/go-ethereum/metrics"
+	"github.com/idrecun/go-ethereum/vendoring/pebble"
+	"github.com/idrecun/go-ethereum/vendoring/pebble/bloom"
 )
 
 const (
@@ -164,7 +164,7 @@ func New(file string, cache int, handles int, namespace string, readonly bool, e
 	// It is used when slices are limited to Uint32 on 64-bit platforms (the
 	// length limit for slices is naturally MaxInt on 32-bit platforms).
 	//
-	// Taken from https://github.com/cockroachdb/pebble/blob/master/internal/constants/constants.go
+	// Taken from https://github.com/idrecun/go-ethereum/vendoring/pebble/blob/master/internal/constants/constants.go
 	maxMemTableSize := (1<<31)<<(^uint(0)>>63) - 1
 
 	// Two memory tables is configured which is identical to leveldb,
@@ -201,8 +201,8 @@ func New(file string, cache int, handles int, namespace string, readonly bool, e
 		// MemTableStopWritesThreshold places a hard limit on the size
 		// of the existent MemTables(including the frozen one).
 		// Note, this must be the number of tables not the size of all memtables
-		// according to https://github.com/cockroachdb/pebble/blob/master/options.go#L738-L742
-		// and to https://github.com/cockroachdb/pebble/blob/master/db.go#L1892-L1903.
+		// according to https://github.com/idrecun/go-ethereum/vendoring/pebble/blob/master/options.go#L738-L742
+		// and to https://github.com/idrecun/go-ethereum/vendoring/pebble/blob/master/db.go#L1892-L1903.
 		MemTableStopWritesThreshold: memTableLimit,
 
 		// The default compaction concurrency(1 thread),
@@ -436,7 +436,7 @@ func (d *Database) Compact(start []byte, limit []byte) error {
 	// flag, as for trie nodes we need the 32 byte 0xff because
 	// there might be a shared prefix starting with a number of
 	// 0xff-s, so 32 ensures than only a hash collision could touch it.
-	// https://github.com/cockroachdb/pebble/issues/2359#issuecomment-1443995833
+	// https://github.com/idrecun/go-ethereum/vendoring/pebble/issues/2359#issuecomment-1443995833
 	if limit == nil {
 		limit = bytes.Repeat([]byte{0xff}, 32)
 	}
@@ -530,7 +530,7 @@ func (d *Database) meter(refresh time.Duration, namespace string) {
 		if d.diskWriteMeter != nil {
 			d.diskWriteMeter.Mark(nWrites[i%2] - nWrites[(i-1)%2])
 		}
-		// See https://github.com/cockroachdb/pebble/pull/1628#pullrequestreview-1026664054
+		// See https://github.com/idrecun/go-ethereum/vendoring/pebble/pull/1628#pullrequestreview-1026664054
 		manuallyAllocated := stats.BlockCache.Size + int64(stats.MemTable.Size) + int64(stats.MemTable.ZombieSize)
 		d.manualMemAllocGauge.Update(manuallyAllocated)
 		d.memCompGauge.Update(stats.Flush.Count)
