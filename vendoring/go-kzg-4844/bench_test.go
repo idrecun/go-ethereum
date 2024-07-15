@@ -9,8 +9,8 @@ import (
 	"testing"
 
 	"github.com/consensys/gnark-crypto/ecc/bls12-381/fr"
-	gokzg4844 "github.com/crate-crypto/go-kzg-4844"
-	"github.com/crate-crypto/go-kzg-4844/internal/kzg"
+	gokzg4844 "github.com/idrecun/go-ethereum/vendoring/go-kzg-4844"
+	"github.com/idrecun/go-ethereum/vendoring/go-kzg-4844/internal/kzg"
 	"github.com/stretchr/testify/require"
 )
 
