@@ -21,7 +21,6 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ethereum/go-verkle"
 	"github.com/holiman/uint256"
 	"github.com/idrecun/go-ethereum/common"
 	"github.com/idrecun/go-ethereum/core/types"
@@ -29,6 +28,7 @@ import (
 	"github.com/idrecun/go-ethereum/trie/trienode"
 	"github.com/idrecun/go-ethereum/trie/utils"
 	"github.com/idrecun/go-ethereum/triedb/database"
+	"github.com/idrecun/go-ethereum/vendoring/go-verkle"
 )
 
 var (

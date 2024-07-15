@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/ethereum/go-verkle"
 	"github.com/holiman/uint256"
+	"github.com/idrecun/go-ethereum/vendoring/go-verkle"
 )
 
 func TestTreeKey(t *testing.T) {

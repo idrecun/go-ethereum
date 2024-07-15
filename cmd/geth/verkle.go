@@ -23,12 +23,12 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ethereum/go-verkle"
 	"github.com/idrecun/go-ethereum/cmd/utils"
 	"github.com/idrecun/go-ethereum/common"
 	"github.com/idrecun/go-ethereum/core/rawdb"
 	"github.com/idrecun/go-ethereum/internal/flags"
 	"github.com/idrecun/go-ethereum/log"
+	"github.com/idrecun/go-ethereum/vendoring/go-verkle"
 	"github.com/urfave/cli/v2"
 )
 

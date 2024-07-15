@@ -20,7 +20,6 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-verkle"
 	"github.com/holiman/uint256"
 	"github.com/idrecun/go-ethereum/common"
 	"github.com/idrecun/go-ethereum/consensus"
@@ -34,6 +33,7 @@ import (
 	"github.com/idrecun/go-ethereum/ethdb"
 	"github.com/idrecun/go-ethereum/params"
 	"github.com/idrecun/go-ethereum/triedb"
+	"github.com/idrecun/go-ethereum/vendoring/go-verkle"
 )
 
 // BlockGen creates blocks for testing.
