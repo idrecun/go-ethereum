@@ -20,19 +20,14 @@ import (
 	"bufio"
 	"crypto/ecdsa"
 	"crypto/elliptic"
-	"crypto/rand"
-	"encoding/hex"
 	"errors"
 	"fmt"
+	"github.com/idrecun/go-ethereum/common"
+	"github.com/idrecun/go-ethereum/rlp"
+	"golang.org/x/crypto/sha3"
 	"hash"
 	"io"
 	"math/big"
-	"os"
-
-	"github.com/idrecun/go-ethereum/common"
-	"github.com/idrecun/go-ethereum/common/math"
-	"github.com/idrecun/go-ethereum/rlp"
-	"golang.org/x/crypto/sha3"
 )
 
 // SignatureLength indicates the byte length required to carry a signature with recovery id.
@@ -43,11 +38,6 @@ const RecoveryIDOffset = 64
 
 // DigestLength sets the signature digest exact length
 const DigestLength = 32
-
-var (
-	secp256k1N     = S256().Params().N
-	secp256k1halfN = new(big.Int).Div(secp256k1N, big.NewInt(2))
-)
 
 var errInvalidPubkey = errors.New("invalid secp256k1 public key")
 
@@ -126,100 +116,45 @@ func CreateAddress2(b common.Address, salt [32]byte, inithash []byte) common.Add
 
 // ToECDSA creates a private key with the given D value.
 func ToECDSA(d []byte) (*ecdsa.PrivateKey, error) {
-	return toECDSA(d, true)
+	return nil, nil
 }
 
 // ToECDSAUnsafe blindly converts a binary blob to a private key. It should almost
 // never be used unless you are sure the input is valid and want to avoid hitting
 // errors due to bad origin encoding (0 prefixes cut off).
 func ToECDSAUnsafe(d []byte) *ecdsa.PrivateKey {
-	priv, _ := toECDSA(d, false)
-	return priv
+	return nil
 }
 
 // toECDSA creates a private key with the given D value. The strict parameter
 // controls whether the key's length should be enforced at the curve size or
 // it can also accept legacy encodings (0 prefixes).
 func toECDSA(d []byte, strict bool) (*ecdsa.PrivateKey, error) {
-	priv := new(ecdsa.PrivateKey)
-	priv.PublicKey.Curve = S256()
-	if strict && 8*len(d) != priv.Params().BitSize {
-		return nil, fmt.Errorf("invalid length, need %d bits", priv.Params().BitSize)
-	}
-	priv.D = new(big.Int).SetBytes(d)
-
-	// The priv.D must < N
-	if priv.D.Cmp(secp256k1N) >= 0 {
-		return nil, errors.New("invalid private key, >=N")
-	}
-	// The priv.D must not be zero or negative.
-	if priv.D.Sign() <= 0 {
-		return nil, errors.New("invalid private key, zero or negative")
-	}
-
-	priv.PublicKey.X, priv.PublicKey.Y = S256().ScalarBaseMult(d)
-	if priv.PublicKey.X == nil {
-		return nil, errors.New("invalid private key")
-	}
-	return priv, nil
+	return nil, nil
 }
 
 // FromECDSA exports a private key into a binary dump.
 func FromECDSA(priv *ecdsa.PrivateKey) []byte {
-	if priv == nil {
-		return nil
-	}
-	return math.PaddedBigBytes(priv.D, priv.Params().BitSize/8)
+	return nil
 }
 
 // UnmarshalPubkey converts bytes to a secp256k1 public key.
 func UnmarshalPubkey(pub []byte) (*ecdsa.PublicKey, error) {
-	x, y := S256().Unmarshal(pub)
-	if x == nil {
-		return nil, errInvalidPubkey
-	}
-	return &ecdsa.PublicKey{Curve: S256(), X: x, Y: y}, nil
+	return nil, nil
 }
 
 func FromECDSAPub(pub *ecdsa.PublicKey) []byte {
-	if pub == nil || pub.X == nil || pub.Y == nil {
-		return nil
-	}
-	return S256().Marshal(pub.X, pub.Y)
+	return nil
 }
 
 // HexToECDSA parses a secp256k1 private key.
 func HexToECDSA(hexkey string) (*ecdsa.PrivateKey, error) {
-	b, err := hex.DecodeString(hexkey)
-	if byteErr, ok := err.(hex.InvalidByteError); ok {
-		return nil, fmt.Errorf("invalid hex character %q in private key", byte(byteErr))
-	} else if err != nil {
-		return nil, errors.New("invalid hex data for private key")
-	}
-	return ToECDSA(b)
+	return nil, nil
 }
 
 // LoadECDSA loads a secp256k1 private key from the given file.
 func LoadECDSA(file string) (*ecdsa.PrivateKey, error) {
-	fd, err := os.Open(file)
-	if err != nil {
-		return nil, err
-	}
-	defer fd.Close()
-
-	r := bufio.NewReader(fd)
-	buf := make([]byte, 64)
-	n, err := readASCII(buf, r)
-	if err != nil {
-		return nil, err
-	} else if n != len(buf) {
-		return nil, errors.New("key file too short, want 64 hex characters")
-	}
-	if err := checkKeyFileEnd(r); err != nil {
-		return nil, err
-	}
-
-	return HexToECDSA(string(buf))
+	return nil, nil
 }
 
 // readASCII reads into 'buf', stopping when the buffer is full or
@@ -257,33 +192,22 @@ func checkKeyFileEnd(r *bufio.Reader) error {
 // SaveECDSA saves a secp256k1 private key to the given file with
 // restrictive permissions. The key data is saved hex-encoded.
 func SaveECDSA(file string, key *ecdsa.PrivateKey) error {
-	k := hex.EncodeToString(FromECDSA(key))
-	return os.WriteFile(file, []byte(k), 0600)
+	return nil
 }
 
 // GenerateKey generates a new private key.
 func GenerateKey() (*ecdsa.PrivateKey, error) {
-	return ecdsa.GenerateKey(S256(), rand.Reader)
+	return nil, nil
 }
 
 // ValidateSignatureValues verifies whether the signature values are valid with
 // the given chain rules. The v value is assumed to be either 0 or 1.
 func ValidateSignatureValues(v byte, r, s *big.Int, homestead bool) bool {
-	if r.Cmp(common.Big1) < 0 || s.Cmp(common.Big1) < 0 {
-		return false
-	}
-	// reject upper range of s values (ECDSA malleability)
-	// see discussion in secp256k1/libsecp256k1/include/secp256k1.h
-	if homestead && s.Cmp(secp256k1halfN) > 0 {
-		return false
-	}
-	// Frontier: allow s to be in full N range
-	return r.Cmp(secp256k1N) < 0 && s.Cmp(secp256k1N) < 0 && (v == 0 || v == 1)
+	return false
 }
 
 func PubkeyToAddress(p ecdsa.PublicKey) common.Address {
-	pubBytes := FromECDSAPub(&p)
-	return common.BytesToAddress(Keccak256(pubBytes[1:])[12:])
+	return common.Address{}
 }
 
 func zeroBytes(bytes []byte) {

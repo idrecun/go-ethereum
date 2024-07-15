@@ -21,9 +21,6 @@ package crypto
 
 import (
 	"crypto/ecdsa"
-	"fmt"
-
-	"github.com/idrecun/go-ethereum/common/math"
 )
 
 // Ecrecover returns the uncompressed public key that created the given signature.
@@ -33,11 +30,7 @@ func Ecrecover(hash, sig []byte) ([]byte, error) {
 
 // SigToPub returns the public key that created the given signature.
 func SigToPub(hash, sig []byte) (*ecdsa.PublicKey, error) {
-	s, err := Ecrecover(hash, sig)
-	if err != nil {
-		return nil, err
-	}
-	return UnmarshalPubkey(s)
+	return nil, nil
 }
 
 // Sign calculates an ECDSA signature.
@@ -49,11 +42,6 @@ func SigToPub(hash, sig []byte) (*ecdsa.PublicKey, error) {
 //
 // The produced signature is in the [R || S || V] format where V is 0 or 1.
 func Sign(digestHash []byte, prv *ecdsa.PrivateKey) (sig []byte, err error) {
-	if len(digestHash) != DigestLength {
-		return nil, fmt.Errorf("hash is required to be exactly %d bytes (%d)", DigestLength, len(digestHash))
-	}
-	seckey := math.PaddedBigBytes(prv.D, prv.Params().BitSize/8)
-	defer zeroBytes(seckey)
 	return nil, nil
 }
 
